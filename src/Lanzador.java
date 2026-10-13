@@ -12,7 +12,7 @@ public class Lanzador extends Thread{
     public void run() {
         String letras = "bcdfghjklmnñpqrstvwxyz";
         for (int e = 0; consonante.length() > e; e++) {
-            if (consonante.charAt(e) == letras) {
+            if (String.valueOf(consonante.charAt(e)).equalsIgnoreCase(letras)) {
 
             }
         }
