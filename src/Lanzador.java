@@ -12,9 +12,15 @@ public class Lanzador extends Thread{
     public void run() {
         String letras = "bcdfghjklmnñpqrstvwxyz";
         for (int e = 0; consonante.length() > e; e++) {
-            if (String.valueOf(consonante.charAt(e)).equalsIgnoreCase(letras)) {
-
+            if (letras.contains(String.valueOf(consonante.charAt(e)))) {
+                contador++;
             }
         }
+    }
+
+    public int contador;
+
+    public int GetTotal() {
+        return contador;
     }
 }
