@@ -20,6 +20,7 @@ public class Contador {
         String coversion_string = String.join("", consonante);
         Lanzador lanzador = new Lanzador(coversion_string, texto);
 
+
         lanzador.start();
 
         try {
@@ -29,6 +30,7 @@ public class Contador {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(lanzador.GetTotal());
+        System.out.println("Total: " + lanzador.GetTotal());
+        System.out.println("Prueba: " +  lanzador.convertir());
     }
 }
