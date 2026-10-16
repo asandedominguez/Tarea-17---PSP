@@ -31,6 +31,7 @@ public class Contador {
         }
 
         System.out.println("Total: " + lanzador.GetTotal());
-        System.out.println("Prueba: " +  lanzador.convertir());
+
+        System.out.println("Letras: " + lanzador.getTexto());
     }
 }

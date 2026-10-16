@@ -27,39 +27,24 @@ public class Lanzador extends Thread{
         for (int h = 0; h < texto_array.length; h++) {
             if (letras.contains(String.valueOf(texto_array[h]))) {
                 suma++;
-                resultado = texto_array[h];
+                l = texto_array[h];
+                conversion += String.valueOf(l);
             }
         }
     }
 
+    public char l;
     public int contador;
     public int contador_texto;
     public int suma;
     public char [] texto_array;
-    public char resultado;
+    public String conversion = "";
 
     public int GetTotal() {
         return contador + contador_texto;
     }
 
-    public Valores convertir() {
-        return new Valores(this.suma, this.resultado);
+    public String getTexto() {
+        return conversion;
     }
-
-    public static class Valores {
-        public final int suma;
-        public final char resultado;
-
-        public Valores(int suma, char resultado) {
-            this.suma = suma;
-            this.resultado = resultado;
-        }
-    }
-
-    @Override
-    public String toString() {
-        return suma +  " " + resultado;
-    }
-
-
 }
