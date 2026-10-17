@@ -10,28 +10,33 @@ public class Contador {
 
         for (int i = 1; i < 6; i++) {
             System.out.println("Introduce la " + i + "º consonante: ");
-            consonante.add(teclado.nextLine().trim());
+            consonante.add(teclado.nextLine().trim().toLowerCase());
         }
 
         System.out.println("Dame un texto: ");
-        String texto = teclado.nextLine().trim();
+        String texto = teclado.nextLine().trim().toLowerCase().repeat(2000);
 
-
-        String coversion_string = String.join("", consonante);
-        Lanzador lanzador = new Lanzador(coversion_string, texto);
-
-
-        lanzador.start();
-
-        try {
-            lanzador.join();
-        }
-        catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+        List<Lanzador> hilos = new ArrayList <>();
+        Lanzador lanzador = null;
+        for (String d: consonante) {
+            lanzador = new Lanzador(d, texto);
+            hilos.add(lanzador);
+            lanzador.start();
         }
 
-        System.out.println("Total: " + lanzador.GetTotal());
+        for (Lanzador lanzador1 : hilos) {
+            try {
+                lanzador1.join();
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
-        System.out.println("Letras: " + lanzador.getTexto());
+        for (Lanzador h : hilos) {
+            System.out.println("Hilo de la letra " + h.consonante + " contó: " + h.contador_texto);
+        }
+
+        System.out.println("Total compartido: " + Lanzador.contador_total);
+
     }
 }
