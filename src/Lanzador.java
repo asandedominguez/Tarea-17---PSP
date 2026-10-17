@@ -24,8 +24,4 @@ public class Lanzador extends Thread{
     public int contador_texto;
     public char [] texto_array;
     public static int contador_total = 0;
-
-    public int GetTotal() {
-        return contador_texto;
-    }
 }
