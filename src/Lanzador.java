@@ -13,15 +13,19 @@ public class Lanzador extends Thread{
     @Override
     public void run() {
         for (int i = 0; texto.length() > i; i++) {
-            if (consonante.contains(String.valueOf(texto.charAt(i)))) {
+            if (consonante.length() == 1 && valido.contains(consonante) && consonante.contains(String.valueOf(texto.charAt(i)))) {
                 contador_texto++;
-                contador_total++;
+                setContador_total();
             }
         }
-        texto_array = texto.toCharArray();
     }
 
     public int contador_texto;
-    public char [] texto_array;
     public static int contador_total = 0;
+    public static String valido = "bcdfghjklmnñpqrstvwxyz";
+
+    public static synchronized void setContador_total() {
+        contador_total++;
+    }
+
 }
