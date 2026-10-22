@@ -1,4 +1,3 @@
-import java.awt.*;
 
 // Creación de la clase que implementa Thread.
 // Se inician 2 variables tipo String
@@ -19,20 +18,20 @@ public class Lanzador extends Thread{
     public void run() {
         for (int i = 0; texto.length() > i; i++) {
             if (consonante.length() == 1 && valido.contains(consonante) && consonante.contains(String.valueOf(texto.charAt(i)))) {
-                contador_texto++;
+                contadorTexto++;
                 setContador_total();
             }
         }
     }
 
     // Declaración de variables necesarias. Las que tiene static es porque son comunes a todos los hilos.
-    public int contador_texto;
-    public static int contador_total = 0;
+    public int contadorTexto;
+    public static int contadorTotal = 0;
     public static String valido = "bcdfghjklmnñpqrstvwxyz";
 
     // Método con el contador que irá aumentando en un valor. Tiene synchronized para que solo 1 hilo puede aumentar el contador
     public static synchronized void setContador_total() {
-        contador_total++;
+        contadorTotal++;
     }
 
 }

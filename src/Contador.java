@@ -40,10 +40,10 @@ public class Contador {
         }
 
         for (Lanzador h : hilos) {
-            System.out.println("Hilo de la letra " + h.consonante + " contó: " + h.contador_texto);
+            System.out.println("Hilo de la letra " + h.consonante + " contó: " + h.contadorTexto);
         }
 
-        System.out.println("Total compartido: " + Lanzador.contador_total);
+        System.out.println("Total compartido: " + Lanzador.contadorTotal);
 
     }
 }
